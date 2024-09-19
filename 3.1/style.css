@@ -1,0 +1,79 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+html {
+  font-size: 62.5%;
+}
+body {
+  
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black;
+  
+  }
+
+nav {
+  display: flex;
+  width: 100%;
+  padding: 2rem;
+  min-height: 10vh;
+  align-items: center;
+  flex-wrap: wrap;
+  margin: auto;
+  background: #00a8c7;
+  justify-content: space-between;
+}
+nav ul {
+  display: flex;
+  align-items: center;
+  list-style-type: none;
+}
+nav li {
+  font-size: 2.5rem;
+  padding: 0 4rem 0 4rem;
+}
+nav a {
+  color: white;
+  text-decoration: none;
+}
+nav img {
+  width: 5vw;
+}
+
+li{
+  font-size: large;
+}
+
+p{
+  font-size: large;
+  color: white;
+}
+.city{
+  color: rgb(255, 255, 255);
+}
+body{
+  font-family: "goldman" ;
+    background-image: url("img/hacker.png");
+   background-repeat: no-repeat;
+   background-position: center;
+   background-size: 400px;
+   background-attachment: fixed;
+}
+footer {
+  font-family: "goldman" ;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #00a8c7;
+  color: white;
+  text-align: center;
+  height: 4%;
+}
+
+
+
+
