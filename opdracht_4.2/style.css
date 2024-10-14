@@ -1,0 +1,55 @@
+h1{
+    font-weight: bolder;
+    font-style: italic;
+    font-size: 24px;
+    color: blue
+}
+h2{
+    font-size: 20px;
+    color: #0000ff;
+    font-weight: bolder;
+}
+h3{
+    font-size: 16px;
+    color: teal;
+    font-weight: bolder;
+}
+p{
+    color: #4D4D4D;
+    font-weight: bolder;
+}
+a{
+    color: #8A2BE2;
+   text-decoration: none;
+}
+header {
+    min-height: 33vh;
+    background-image: url("img/the-elder-scrolls-v-skyrim-header.jpg");
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center;
+    
+
+    
+     
+}
+header > p{
+    background-color: rgba(128, 128, 128, 0.582);
+    
+}
+img{
+    width: 30vw;
+    background-position: 30vh;
+}
+article{
+    border-style: solid;
+    border-radius: 20px;
+    border-color: red;
+    margin-top: 30px; 
+    border-color: red;
+    border-left: 8px solid red;
+}
+    
+
+
+
