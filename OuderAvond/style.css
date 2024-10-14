@@ -9,7 +9,7 @@ nav{
   display: flex;
   height: 80px;
   width: 100%;
-  background: #A7CE09;
+  background: #3AA93E;
   align-items: center;
   justify-content: space-between;
   padding: 0 50px 0 100px;
@@ -18,7 +18,7 @@ nav{
 nav .logo{
   color: #fff;
   font-size: 35px;
-  font-weight: 300;
+  font-weight: 600;
 }
 nav ul{
   display: flex;
@@ -31,7 +31,7 @@ nav ul li{
 nav ul li a{
   color: white;
   text-decoration: none;
-  font-size: 12px;
+  font-size: 18px;
   font-weight: 500;
   padding: 8px 15px;
   border-radius: 5px;
@@ -41,7 +41,7 @@ nav ul li a{
 nav ul li a.active,
 nav ul li a:hover{
   color: black;
-  background: white;
+  background: #ACE82D;
 }
 nav .menu-btn i{
   color: white;
@@ -98,21 +98,36 @@ input[type="checkbox"]{
     color: white;
   }
 }
-.content{
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+
+.content {
+  flex: 1;
+  padding: 20px;
   text-align: center;
-  z-index: -1;
-  width: 100%;
-  padding: 0 30px;
-  color: white;
+  position: relative;
+  background-color: white;
 }
 .content div{
   font-size: 40px;
   font-weight: 700;
 }
-body{
-    background-color: #063D0C;
+
+/* Ensure the page takes the full height */
+
+/* Make the content take available space */
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+
+/* Style the footer at the bottom */
+footer {
+  background-color: #3AA93E;
+  color: white;
+  text-align: center;
+  padding: 10px;
+  width: 100%;
+  position: relative;
 }
