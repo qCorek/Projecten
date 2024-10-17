@@ -20,7 +20,7 @@ nav {
 
 ul {
     display: flex;
-    width: 85%;
+    width: 50%;
     flex-direction: row;
     justify-content: space-between;
 }
@@ -31,14 +31,12 @@ li {
 }
 
 #login {
-    display: flex;
-    width: 45%;
+    width: 25%;
     justify-content: center;
 }
 
 #logo {
-    display: flex;
-    width: 45%;
+    width: 25%;
     justify-content: center;
 }
 
