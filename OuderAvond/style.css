@@ -5,6 +5,12 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
 } 
+
+nav img {
+  
+  height: 500px;
+}
+
 nav{
   display: flex;
   height: 80px;
@@ -130,5 +136,101 @@ footer {
   padding: 10px;
   width: 100%;
   position: relative;
+}
+section {
+  flex-direction: column;
+}
+/* Basis stijlen blijven zoals ze zijn */
+
+/* Media query voor tablets en kleinere schermen (max 768px) */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px; /* Minder padding voor kleinere schermen */
+    flex-direction: column; /* Maak de navigatie verticaal */
+  }
+
+  nav .logo {
+    font-size: 30px; /* Kleinere logo-grootte */
+  }
+
+  nav ul {
+    flex-direction: column; /* Menu-items onder elkaar */
+    position: static; /* Niet vast */
+    display: none; /* Verberg menu standaard */
+  }
+
+  #click:checked ~ nav ul {
+    display: flex; /* Toon menu als het is aangeklikt */
+    background: #111; /* Achtergrondkleur voor het menu */
+  }
+
+  nav ul li {
+    margin: 10px 0; /* Ruimte tussen menu-items */
+  }
+
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+
+  .content {
+    padding: 15px; /* Minder padding in de content */
+  }
+
+  .content div {
+    font-size: 32px; /* Kleinere titelgrootte */
+  }
+
+  footer {
+    padding: 8px; /* Minder padding in de footer */
+  }
+}
+
+/* Media query voor mobiele apparaten (max 480px) */
+@media (max-width: 480px) {
+  nav {
+    padding: 0 10px; /* Nog minder padding */
+  }
+
+  
+
+  nav ul {
+    display: none; /* Menu standaard verbergen */
+  }
+
+  #click:checked ~ nav ul {
+    display: flex; /* Toon het menu als het is aangeklikt */
+    flex-direction: column; /* Menu-items onder elkaar */
+    align-items: center; /* Center de items */
+  }
+
+  nav ul li {
+    width: 100%; /* Maak menu-items 100% breed */
+    margin: 10px 0; /* Ruimte tussen menu-items */
+  }
+
+  nav ul li a {
+    width: 100%;
+    margin-left: -100%;
+    display: block;
+    font-size: 20px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  }
+.li
+  .content {
+    padding: 10px; /* Minimum padding voor content */
+  }
+
+  .content div {
+    font-size: 28px; /* Kleinere titelgrootte */
+  }
+
+  footer {
+    font-size: 12px; /* Kleinere footer tekstgrootte */
+    padding: 5px; /* Minimum padding */
+  }
 }
 
