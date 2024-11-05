@@ -1,17 +1,21 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins:400,500,600,700&display=swap');
-*{
+
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
-} 
-
-nav img {
-  
-  height: 500px;
 }
 
-nav{
+html, body {
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Navigation styles */
+nav {
   display: flex;
   height: 80px;
   width: 100%;
@@ -21,20 +25,24 @@ nav{
   padding: 0 50px 0 100px;
   flex-wrap: wrap;
 }
-nav .logo{
+
+nav .logo {
   color: #fff;
   font-size: 35px;
   font-weight: 600;
 }
-nav ul{
+
+nav ul {
   display: flex;
   flex-wrap: wrap;
   list-style: none;
 }
-nav ul li{
+
+nav ul li {
   margin: 0 5px;
 }
-nav ul li a{
+
+nav ul li a {
   color: white;
   text-decoration: none;
   font-size: 18px;
@@ -44,33 +52,38 @@ nav ul li a{
   letter-spacing: 1px;
   transition: all 0.3s ease;
 }
+
 nav ul li a.active,
-nav ul li a:hover{
+nav ul li a:hover {
   color: black;
   background: #ACE82D;
 }
-nav .menu-btn i{
+
+nav .menu-btn i {
   color: white;
   font-size: 22px;
   cursor: pointer;
   display: none;
 }
-input[type="checkbox"]{
+
+input[type="checkbox"] {
   display: none;
 }
-@media (max-width: 1000px){
-  nav{
+
+/* Responsive adjustments */
+@media (max-width: 1000px) {
+  nav {
     padding: 0 40px 0 50px;
   }
 }
+
 @media (max-width: 920px) {
-  nav .menu-btn i{
+  nav .menu-btn i {
     display: block;
   }
-  #click:checked ~ .menu-btn i:before{
-    content: "\f00d";
-  }
-  nav ul{
+
+  /* Mobile menu overlay */
+  nav ul {
     position: fixed;
     top: 80px;
     left: -100%;
@@ -81,27 +94,103 @@ input[type="checkbox"]{
     display: block;
     transition: all 0.3s ease;
   }
-  #click:checked ~ ul{
+
+  #click:checked ~ ul {
     left: 0;
   }
-  nav ul li{
+
+  nav ul li {
     width: 100%;
     margin: 40px 0;
   }
-  nav ul li a{
+
+  nav ul li a {
     width: 100%;
-    margin-left: -100%;
     display: block;
     font-size: 20px;
-    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
   }
-  #click:checked ~ ul li a{
-    margin-left: 0px;
+}
+
+/* Tablet and smaller screens */
+@media (max-width: 768px) {
+  nav {
+    padding: 0 20px;
+    flex-direction: column;
   }
-  nav ul li a.active,
-  nav ul li a:hover{
-    background: none;
-    color: white;
+
+  nav .logo {
+    font-size: 30px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  #click:checked ~ nav ul {
+    display: flex;
+    flex-direction: column;
+    background: #111;
+  }
+
+  nav ul li {
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    font-size: 20px;
+  }
+
+  .content {
+    padding: 15px;
+  }
+
+  .content div {
+    font-size: 32px;
+  }
+
+  footer {
+    padding: 8px;
+  }
+}
+
+/* Mobile-specific styles */
+@media (max-width: 480px) {
+  nav {
+    padding: 0 10px;
+  }
+
+  nav ul {
+    display: none;
+  }
+
+  #click:checked ~ nav ul {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  nav ul li {
+    width: 100%;
+    margin: 10px 0;
+  }
+
+  nav ul li a {
+    width: 100%;
+    font-size: 18px;
+  }
+
+  .content {
+    padding: 10px;
+  }
+
+  .content div {
+    font-size: 28px;
+  }
+
+  footer {
+    font-size: 12px;
+    padding: 5px;
   }
 }
 
@@ -109,128 +198,18 @@ input[type="checkbox"]{
   flex: 1;
   padding: 20px;
   text-align: center;
-  position: relative;
   background-color: white;
 }
-.content div{
+
+.content div {
   font-size: 40px;
   font-weight: 700;
 }
 
-/* Ensure the page takes the full height */
-
-/* Make the content take available space */
-html, body {
-  height: 100%;
-  margin: 0;
-  display: flex;
-  flex-direction: column;
-}
-
-
-/* Style the footer at the bottom */
 footer {
   background-color: #3AA93E;
   color: white;
   text-align: center;
   padding: 10px;
   width: 100%;
-  position: relative;
 }
-section {
-  flex-direction: column;
-}
-/* Basis stijlen blijven zoals ze zijn */
-
-/* Media query voor tablets en kleinere schermen (max 768px) */
-@media (max-width: 768px) {
-  nav {
-    padding: 0 20px; /* Minder padding voor kleinere schermen */
-    flex-direction: column; /* Maak de navigatie verticaal */
-  }
-
-  nav .logo {
-    font-size: 30px; /* Kleinere logo-grootte */
-  }
-
-  nav ul {
-    flex-direction: column; /* Menu-items onder elkaar */
-    position: static; /* Niet vast */
-    display: none; /* Verberg menu standaard */
-  }
-
-  #click:checked ~ nav ul {
-    display: flex; /* Toon menu als het is aangeklikt */
-    background: #111; /* Achtergrondkleur voor het menu */
-  }
-
-  nav ul li {
-    margin: 10px 0; /* Ruimte tussen menu-items */
-  }
-
-  nav ul li a {
-    width: 100%;
-    margin-left: -100%;
-    display: block;
-    font-size: 20px;
-    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-
-  .content {
-    padding: 15px; /* Minder padding in de content */
-  }
-
-  .content div {
-    font-size: 32px; /* Kleinere titelgrootte */
-  }
-
-  footer {
-    padding: 8px; /* Minder padding in de footer */
-  }
-}
-
-/* Media query voor mobiele apparaten (max 480px) */
-@media (max-width: 480px) {
-  nav {
-    padding: 0 10px; /* Nog minder padding */
-  }
-
-  
-
-  nav ul {
-    display: none; /* Menu standaard verbergen */
-  }
-
-  #click:checked ~ nav ul {
-    display: flex; /* Toon het menu als het is aangeklikt */
-    flex-direction: column; /* Menu-items onder elkaar */
-    align-items: center; /* Center de items */
-  }
-
-  nav ul li {
-    width: 100%; /* Maak menu-items 100% breed */
-    margin: 10px 0; /* Ruimte tussen menu-items */
-  }
-
-  nav ul li a {
-    width: 100%;
-    margin-left: -100%;
-    display: block;
-    font-size: 20px;
-    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
-  }
-.li
-  .content {
-    padding: 10px; /* Minimum padding voor content */
-  }
-
-  .content div {
-    font-size: 28px; /* Kleinere titelgrootte */
-  }
-
-  footer {
-    font-size: 12px; /* Kleinere footer tekstgrootte */
-    padding: 5px; /* Minimum padding */
-  }
-}
-
