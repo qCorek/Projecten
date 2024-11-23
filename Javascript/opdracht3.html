@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Invoer Formulier</title>
+</head>
+<body>
+    <h1>Voer een product in</h1>
+    <form id="productForm">
+        <label for="productInput">Productnaam:</label>
+        <input type="text" id="productInput" name="product" placeholder="Typ hier een product">
+        <button type="button" onclick="getProductValue()">Verstuur</button>
+    </form>
+
+    <script>
+        function getProductValue() {
+            // Haal de waarde van het tekstveld op
+            const productValue = document.getElementById("productInput").value;
+            // Schrijf de waarde weg naar de console
+            console.log("Ingevoerde product:", productValue);
+        }
+    </script>
+</body>
+</html>
