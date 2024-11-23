@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Winkelmand</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            padding: 20px;
+        }
+        button {
+            padding: 10px 15px;
+            background-color: #007bff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <h1>Winkelmand Opdrachten</h1>
+    <div id="output"></div>
+    <button onclick="addProduct()">Product toevoegen</button>
+
+    <script>
+        // Opdracht 1
+        let winkelmandje = ["Bananen", "Whiskey", "Chips", "Bonen", "Aardappelen"];
+        const outputDiv = document.getElementById("output");
+
+        // Toon het aantal producten
+        outputDiv.innerText = `Uw winkelmandje bevat ${winkelmandje.length} producten.\n`;
+
+        // Opdracht 2: Toon alle producten
+        outputDiv.innerText += `Uw producten zijn: ${winkelmandje.join(", ")}.\n`;
+
+        // Opdracht 3: Toon het vierde product
+        outputDiv.innerText += `${winkelmandje[3]}, staat op de vierde plek in uw winkelmand.\n`;
+
+        // Opdracht 4: Wijzig Whiskey naar Bier zonder originele array aan te passen
+        let updatedWinkelmand = [...winkelmandje]; // Kopie van de array
+        updatedWinkelmand[1] = "Bier";
+        outputDiv.innerText += `Winkelmandje aangepast: ${updatedWinkelmand.join(", ")}.\n`;
+
+        // Opdracht 5: Voeg een product toe met een knop
+        function addProduct() {
+            const newProduct = prompt("Welk product wilt u toevoegen?");
+            if (newProduct) {
+                winkelmandje.push(newProduct);
+                outputDiv.innerText = `Product toegevoegd! Uw winkelmandje bevat nu: ${winkelmandje.join(", ")}.\n`;
+            }
+        }
+
+        // Opdracht 6: Controleer of er meer dan 1 product in het mandje zit
+        if (winkelmandje.length > 1) {
+            outputDiv.innerText += `Uw winkelmandje bevat meer dan 1 product: ${winkelmandje.join(", ")}.\n`;
+        } else {
+            outputDiv.innerText += `U heeft niet genoeg producten om te tonen.\n`;
+        }
+
+        // Opdracht 7: Controleer of "drop" het vijfde product is
+        if (winkelmandje[4] === "Drop") {
+            outputDiv.innerText += `Uw vijfde product is drop. Alle producten: ${winkelmandje.join(", ")}.\n`;
+        } else {
+            outputDiv.innerText += `U heeft geen drop als vijfde product.\n`;
+        }
+
+        // Opdracht 8: Toon producten met spaties ertussen
+        outputDiv.innerText += `Producten met spaties: ${winkelmandje.join(" ")}.\n`;
+
+        // Opdracht 9: Verwijder eerste en tweede product met splice
+        const oudeWinkelmand = [...winkelmandje];
+        winkelmandje.splice(0, 2);
+        outputDiv.innerText += `Oude winkelmand: ${oudeWinkelmand.join(", ")}.\nNieuwe winkelmand: ${winkelmandje.join(", ")}.\n`;
+
+        // Opdracht 10: Sorteer producten op alfabetische volgorde
+        winkelmandje.sort();
+        outputDiv.innerText += `Gesorteerde winkelmand: ${winkelmandje.join(", ")}.\n`;
+    </script>
+</body>
+</html>
