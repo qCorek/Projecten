@@ -1,3 +1,29 @@
+
+          function openPopup() {
+            document.getElementById('popup').style.display = 'block';
+            document.getElementById('overlay').style.display = 'block';
+        }
+
+        function closePopup() {
+            document.getElementById('popup').style.display = 'none';
+            document.getElementById('overlay').style.display = 'none';
+        }
+
+        function addRekening(event) {
+            event.preventDefault();
+            const naam = document.getElementById('rekeningNaam').value;
+            const saldo = parseFloat(document.getElementById('rekeningSaldo').value).toFixed(2);
+
+            const rekeningList = document.querySelector('.rekening-list');
+            const newRekening = document.createElement('div');
+            newRekening.classList.add('rekening-item');
+            newRekening.innerHTML = `<span>${naam}</span><span>€${saldo}</span>`;
+            rekeningList.appendChild(newRekening);
+
+            closePopup();
+        }
+
+
 document.addEventListener("DOMContentLoaded", () => {
     const isLoggedIn = localStorage.getItem("isLoggedIn");
 
@@ -45,7 +71,7 @@ document.addEventListener("DOMContentLoaded", () => {
         document.body.style.overflow = "auto";
     }
 
-
+ 
     document.getElementById("home-button").addEventListener("click", () => {
         window.location.href = "index.html"; 
     });
@@ -56,5 +82,12 @@ document.addEventListener("DOMContentLoaded", () => {
 
     document.getElementById("rekening-button").addEventListener("click", () => {
         window.location.href = "rekeningen.html"; 
+
     });
+
+
+
+
+
+
 });

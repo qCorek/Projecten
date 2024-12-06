@@ -10,7 +10,78 @@ body {
     overflow: hidden; 
 }
 
+/* Login Section */
+#login-section {
+    background-color: #272727;
+    padding: 40px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
 
+    /* Centering styles */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+#login-section h1 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: #777;
+}
+
+#login-section .form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+#login-section label {
+    font-size: 1rem;
+    color: #555;
+}
+
+#login-section input[type="text"], 
+#login-section input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+}
+
+#login-section input[type="text"]:focus, 
+#login-section input[type="password"]:focus {
+    border-color: #ff7f00;
+    outline: none;
+}
+
+#login-section button {
+    background-color: #ff7f00; 
+    color: white;
+    font-size: 1.2rem;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 40%;
+
+}
+
+#login-section button:hover {
+    background-color: #e66c00; 
+}
+
+#login-section #login-error-message {
+    color: red;
+    font-size: 0.9rem;
+    margin-top: 10px;
+    display: none;
+}
+
+/* Animation Overlay */
 #animation-overlay {
     position: fixed;
     top: 0;
@@ -50,6 +121,7 @@ body {
     }
 }
 
+/* Header */
 header {
     text-align: center;
     padding: 10px 0;
@@ -62,6 +134,7 @@ header {
     transition: opacity 1s ease-in-out;
 }
 
+/* Navigation */
 nav {
     display: flex;
     justify-content: center;
@@ -87,7 +160,7 @@ nav button:hover {
     background-color: #b5650b;
 }
 
-
+/* Main Section */
 main {
     flex: 1;
     display: flex;
@@ -95,15 +168,14 @@ main {
     align-items: center;
 }
 
-
 #welcome-section {
-        cursor: default;
+    cursor: default;
     user-select: none;
     text-align: center;
 }
 
 .welcome-text {
-        cursor: default;
+    cursor: default;
     user-select: none;
     color: orange;
     font-size: 48px;
@@ -111,14 +183,14 @@ main {
 }
 
 .author-text {
-        cursor: default;
+    cursor: default;
     user-select: none;
     color: white;
     font-size: 18px;
     margin-top: 10px;
 }
 
-
+/* Footer */
 footer {
     text-align: center;
     background-color: #222;
@@ -128,4 +200,111 @@ footer {
     bottom: 0;
     width: 100%;
     flex-shrink: 0;
+}
+
+/* Dashboard */
+.dashboard {
+    max-width: 600px;
+    margin: 50px auto;
+    background: #272727;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.dashboard h1 {
+    text-align: center;
+    color: #FFA500;
+}
+
+.rekening-list {
+    margin-top: 20px;
+}
+
+.rekening-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #ddd;
+}
+
+.rekening-item:last-child {
+    border-bottom: none;
+}
+
+.rekening-item span {
+    font-weight: bold;
+}
+
+.new-rekening-button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #FFA500;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: background-color 0.3s ease;
+}
+
+.new-rekening-button:hover {
+    background-color: #d48900;
+}
+
+/* Popup */
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #202020;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.popup h2 {
+    margin-top: 0;
+}
+
+.popup form {
+    display: flex;
+    flex-direction: column;
+}
+
+.popup input {
+    margin-bottom: 10px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+.popup button {
+    padding: 10px;
+    background-color: #FFA500;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.popup button:hover {
+    background-color: #d48900;
+}
+
+/* Overlay */
+.overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 999;
 }
