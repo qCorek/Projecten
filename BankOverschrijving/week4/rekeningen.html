@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rekeningen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        Rekeningen Pagina
+    </header>
+    <nav>
+        <button id="home-button">Home</button>
+        <button id="bank-button">BankOverschrijvingen</button>
+        <button id="rekening-button">Rekeningen</button>
+    </nav>
+    <main>
+
+    <div class="dashboard">
+        <h1>Rekeningbeheer Dashboard</h1>
+        <div class="rekening-list">
+
+            
+        </div>
+        <button class="new-rekening-button" onclick="openPopup()">Nieuwe Rekening Aanmaken</button>
+    </div>
+
+    <div class="popup" id="popup">
+        <h2>Nieuwe Rekening</h2>
+        <form onsubmit="addRekening(event)">
+            <input type="text" id="rekeningNaam" placeholder="Rekeningnaam" required />
+            <input type="number" id="rekeningSaldo" placeholder="Startsaldo (€)" required />
+            <button type="submit">Aanmaken</button>
+        </form>
+    </div>
+
+    <div class="overlay" id="overlay" onclick="closePopup()"></div>
+
+ 
+    </main>
+    <script src="script.js"></script>
+</body>
+</html>
