@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactieve Vermenigvuldigingstafel</title>
+</head>
+<body>
+    <h1>Interactieve Vermenigvuldigingstafel</h1>
+    <label for="numberInput">Voer een getal in:</label>
+    <input type="number" id="numberInput" />
+    <button onclick="genereerTafel()">Genereer Tafel</button>
+    <div id="result"></div>
+
+    <script>
+        function genereerTafel() {
+            const getal = document.getElementById('numberInput').value;
+
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = '';
+
+            if (isNaN(getal) || getal.trim() === '') {
+                resultDiv.innerHTML = '<p>Voer een geldig getal in.</p>';
+                return;
+            }
+
+            let output = '<ul>';
+            for (let i = 1; i <= 10; i++) {
+                output += `<li>${i} x ${getal} = ${i * getal}</li>`;
+            }
+            output += '</ul>';
+
+            resultDiv.innerHTML = output;
+        }
+    </script>
+</body>
+</html>
