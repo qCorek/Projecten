@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BankOverschrijvingen</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        BankOverschrijvingen Pagina
+    </header>
+    <nav>
+        <button id="home-button">Home</button>
+        <button id="bank-button">BankOverschrijvingen</button>
+        <button id="rekening-button">Rekeningen</button>
+        <button id="geschiedenis-button">Geschiedenis</button>
+
+    </nav>
+
+    <main>
+        <div class="container">
+            <h1>Geld Overschrijven</h1>
+            <form id="overschrijvenForm">
+                <label for="vanRekening">Van rekening:</label>
+                <select id="vanRekening">
+                   
+                </select>
+
+                <label for="naarRekening">Naar rekening:</label>
+                <select id="naarRekening">
+                  
+                </select>
+
+                <label for="bedrag">Bedrag:</label>
+                <input type="number" id="bedrag" placeholder="100" required>
+
+                <button type="button" onclick="overschrijven()">Overschrijven</button>
+            </form>
+        </div>
+
+       
+    </main>
+
+    <script src="script.js">
+        
+
+    </script>
+<script>
+            const rekeningen = JSON.parse(localStorage.getItem('rekeningen')) || [];
+
+            const vanRekeningSelect = document.getElementById('vanRekening');
+            const naarRekeningSelect = document.getElementById('naarRekening');
+
+            vanRekeningSelect.innerHTML = '';
+            naarRekeningSelect.innerHTML = '';
+
+            rekeningen.forEach(rekening => {
+                const option = document.createElement('option');
+                option.value = rekening.naam;
+                option.textContent = rekening.naam + " (€" + rekening.saldo + ")";
+                vanRekeningSelect.appendChild(option);
+
+                const optionCopy = option.cloneNode(true);  
+                naarRekeningSelect.appendChild(optionCopy);
+            });
+      
+</script>
+</body>
+</html>

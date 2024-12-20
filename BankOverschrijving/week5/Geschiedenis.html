@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geschiedenis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+      <header>
+        Geschiedenis pagina
+    </header>
+    <nav>
+        <button id="home-button">Home</button>
+        <button id="bank-button">Bank Overschrijvingen</button>
+        <button id="rekening-button">Rekeningen</button>
+    </nav>
+    <main>
+        <div id="transaction-history" class="history-container">
+            <p>Geen transacties gevonden.</p>
+        </div>
+    </main>
+  
+    <script src="script.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const transactions = JSON.parse(localStorage.getItem('transactions')) || [];
+            const historyContainer = document.getElementById('transaction-history');
+
+            if (transactions.length === 0) {
+                historyContainer.innerHTML = "<p>Geen transacties gevonden.</p>";
+                return;
+            }
+
+            const historyTable = document.createElement('table');
+            historyTable.classList.add('transaction-table');
+            historyTable.innerHTML = `
+                <thead>
+                    <tr>
+                        <th>Van Rekening</th>
+                        <th>Naar Rekening</th>
+                        <th>Bedrag</th>
+                        <th>Tijdstip</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    ${transactions.map(t => `
+                        <tr>
+                            <td>${t.vanRekening}</td>
+                            <td>${t.naarRekening}</td>
+                            <td>€${t.bedrag}</td>
+                            <td>${t.timestamp}</td>
+                        </tr>
+                    `).join('')}
+                </tbody>
+            `;
+            historyContainer.innerHTML = ''; 
+            historyContainer.appendChild(historyTable);
+
+            document.getElementById("home-button").addEventListener("click", () => {
+                window.location.href = "index.html";
+            });
+
+            document.getElementById("bank-button").addEventListener("click", () => {
+                window.location.href = "bankoverschrijvingen.html";
+            });
+
+            document.getElementById("rekening-button").addEventListener("click", () => {
+                window.location.href = "rekeningen.html";
+            });
+        });
+    </script>
+</body>
+</html>
