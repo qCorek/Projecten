@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Beleggingen - Cryptovaluta</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body id="cryptovaluta-page">
+  <header>
+    Cryptovaluta
+  </header>
+  <nav>
+        <button id="home-button">Home</button>
+        <button id="bank-button">BankOverschrijvingen</button>
+        <button id="rekening-button">Rekeningen</button>
+        <button id="geschiedenis-button">Geschiedenis</button>
+                <button id="beleggingen-button">Beleggingen</button>
+                   <button id="cryptovaluta-button">Cryptovaluta</button>
+
+  </nav>
+
+  <div class="crypto-container">
+    <p><strong>Beschikbaar saldo:</strong> <span id="saldo">&euro;1000.00</span></p>
+
+    <div class="crypto-prices">
+      <div id="bitcoin" class="crypto">
+        Bitcoin: €<span class="price">90000</span> per eenheid
+      </div>
+      <div id="ethereum" class="crypto">
+        Ethereum: €<span class="price">4800</span> per eenheid
+      </div>
+      <div id="litecoin" class="crypto">
+        Litecoin: €<span class="price">250</span> per eenheid
+      </div>
+    </div>
+
+    <div class="investment-section">
+      <label for="crypto-select">Kies een cryptovaluta:</label>
+      <select id="crypto-select">
+        <option value="bitcoin">Bitcoin</option>
+        <option value="ethereum">Ethereum</option>
+        <option value="litecoin">Litecoin</option>
+      </select>
+
+      <label for="amount">Bedrag (in €):</label>
+      <input type="number" id="amount" placeholder="Voer bedrag in">
+
+      <div>
+        <button id="buy-button">Kopen</button>
+        <button id="sell-button">Verkopen</button>
+      </div>
+
+      <p class="status" id="investment-status">
+        Je hebt €0.00 geïnvesteerd.
+      </p>
+    </div>
+  </div>
+    <script src="script.js"></script>
+
+  <script>
+    let saldo = 1000.00;
+
+    const cryptoPrices = {
+      bitcoin: 90000,
+      ethereum: 4800,
+      litecoin: 250,
+    };
+
+    let investments = {
+      bitcoin: 0,
+      ethereum: 0,
+      litecoin: 0,
+    };
+
+    // DOM Elements
+    const saldoElement = document.getElementById('saldo');
+    const cryptoSelect = document.getElementById('crypto-select');
+    const amountInput = document.getElementById('amount');
+    const buyButton = document.getElementById('buy-button');
+    const sellButton = document.getElementById('sell-button');
+    const investmentStatus = document.getElementById('investment-status');
+
+    // Update the UI after transactions
+    function updateUI() {
+      saldoElement.textContent = `€${saldo.toFixed(2)}`;
+
+      const totalInvestment = Object.keys(investments).reduce((total, key) => {
+        return total + investments[key] * cryptoPrices[key];
+      }, 0);
+
+      investmentStatus.textContent = `Je hebt €${totalInvestment.toFixed(2)} geïnvesteerd.`;
+    }
+
+    // Animate price updates
+    function updatePrice(crypto) {
+      const priceElement = document.querySelector(`#${crypto} .price`);
+      priceElement.textContent = cryptoPrices[crypto].toFixed(2);
+      priceElement.classList.add('animated-price');
+      setTimeout(() => priceElement.classList.remove('animated-price'), 500);
+    }
+
+    // Simulate price changes every 5 seconds
+    setInterval(() => {
+      for (let crypto in cryptoPrices) {
+        const change = (Math.random() - 0.5) * 0.1; // Random change between -5% and +5%
+        cryptoPrices[crypto] = Math.max(cryptoPrices[crypto] * (1 + change), 1);
+        updatePrice(crypto);
+      }
+    }, 5000);
+
+    // Handle buy and sell actions
+    function handleTransaction(type) {
+      const crypto = cryptoSelect.value;
+      const amount = parseFloat(amountInput.value);
+
+      if (isNaN(amount) || amount <= 0) {
+        alert('Voer een geldig bedrag in.');
+        return;
+      }
+
+      const cryptoPrice = cryptoPrices[crypto];
+      const cryptoUnits = amount / cryptoPrice;
+
+      if (type === 'buy') {
+        if (amount > saldo) {
+          alert('Onvoldoende saldo om deze transactie te voltooien.');
+          return;
+        }
+        saldo -= amount;
+        investments[crypto] += cryptoUnits;
+      } else if (type === 'sell') {
+        if (investments[crypto] < cryptoUnits) {
+          alert('Je hebt niet genoeg eenheden om te verkopen.');
+          return;
+        }
+        saldo += amount;
+        investments[crypto] -= cryptoUnits;
+      }
+
+      amountInput.value = '';
+      updateUI();
+    }
+
+    // Event Listeners
+    buyButton.addEventListener('click', () => handleTransaction('buy'));
+    sellButton.addEventListener('click', () => handleTransaction('sell'));
+
+    document.getElementById("home-button").addEventListener("click", () => {
+        window.location.href = "index.html"; 
+    });
+
+    document.getElementById("bank-button").addEventListener("click", () => {
+
+        window.location.href = "bankoverschrijvingen.html"; 
+
+    });
+    document.getElementById("geschiedenis-button").addEventListener("click", () => {
+
+        window.location.href = "Geschiedenis.html"; 
+
+    });
+    document.getElementById("rekening-button").addEventListener("click", () => {
+
+        window.location.href = "rekeningen.html"; 
+
+
+    });
+
+      document.getElementById("beleggingen-button").addEventListener("click", () => {
+                window.location.href = "Beleggingen.html";
+            });
+
+        document.getElementById("cryptovaluta-button").addEventListener("click", () => {
+                window.location.href = "cryptovaluta.html";
+            });
+  
+  </script>
+</body>
+</html>

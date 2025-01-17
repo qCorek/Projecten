@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Geschiedenis</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body id="beleggingen-page">
+      <header>
+        Beleggingen pagina
+    </header>
+    <nav>
+       <button id="home-button">Home</button>
+        <button id="bank-button">Bank Overschrijvingen</button>
+        <button id="rekening-button">Rekeningen</button>
+        <button id="beleggingen-button">Beleggingen</button>
+   <button id="cryptovaluta-button">Cryptovaluta</button>
+
+
+    </nav>
+           <p><strong>Beschikbaar saldo:</strong> <span id="saldo">&euro;760.00</span></p>
+
+    <label for="category">Kies een categorie:</label>
+    <select id="category">
+      <option value="stocks">Aandelen</option>
+      <option value="crypto">Crypto</option>
+    </select>
+
+    <label for="product">Kies een product:</label>
+    <select id="product">
+      <option value="TechCorp">TechCorp</option>
+      <option value="GreenEnergy">GreenEnergy</option>
+    </select>
+
+    <p><strong>Huidige prijs:</strong> <span id="currentPrice">&euro;120.00</span></p>
+    <p><strong>In bezit:</strong> <span id="owned">0 eenheden</span></p>
+
+    <label for="amount">Bedrag:</label>
+    <input type="number" id="amount" placeholder="Voer bedrag in">
+
+    <div>
+      <button class="buy" onclick="buyStock()">Kopen</button>
+      <button class="sell" onclick="sellStock()">Verkopen</button>
+    </div>
+
+    <p class="status" id="status"></p>
+  
+    <script src="script.js"></script>
+    <script>
+     let saldo = 760.00;
+    let currentPrice = 120.00;
+    let owned = 0;
+
+    const saldoElement = document.getElementById('saldo');
+    const currentPriceElement = document.getElementById('currentPrice');
+    const ownedElement = document.getElementById('owned');
+    const statusElement = document.getElementById('status');
+
+    // Dynamische prijsupdates
+    setInterval(() => {
+      currentPrice = (Math.random() * (150 - 100) + 100).toFixed(2);
+      currentPriceElement.textContent = `€${currentPrice}`;
+    }, 5000);
+
+    function buyStock() {
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      if (isNaN(amount) || amount <= 0) {
+        statusElement.textContent = 'Voer een geldig bedrag in!';
+        return;
+      }
+
+      const totalCost = amount * currentPrice;
+
+      if (totalCost > saldo) {
+        statusElement.textContent = 'Onvoldoende saldo om deze transactie te voltooien.';
+        return;
+      }
+
+      saldo -= totalCost;
+      owned += amount;
+
+      updateUI();
+      statusElement.textContent = `Je hebt €${(totalCost).toFixed(2)} geïnvesteerd in TechCorp.`;
+    }
+
+    function sellStock() {
+      const amount = parseFloat(document.getElementById('amount').value);
+
+      if (isNaN(amount) || amount <= 0) {
+        statusElement.textContent = 'Voer een geldig bedrag in!';
+        return;
+      }
+
+      if (amount > owned) {
+        statusElement.textContent = 'Je bezit niet genoeg eenheden om te verkopen.';
+        return;
+      }
+
+      const totalGain = amount * currentPrice;
+
+      saldo += totalGain;
+      owned -= amount;
+
+      updateUI();
+      statusElement.textContent = `Je hebt €${(totalGain).toFixed(2)} verdiend door verkoop.`;
+    }
+
+    function updateUI() {
+      saldoElement.textContent = `€${saldo.toFixed(2)}`;
+      ownedElement.textContent = `${owned} eenheden`;
+      document.getElementById('amount').value = '';
+
+     
+    }
+     document.getElementById("beleggingen-button").addEventListener("click", () => {
+                window.location.href = "Beleggingen.html";
+            });
+      document.getElementById("home-button").addEventListener("click", () => {
+                window.location.href = "index.html";
+            });
+
+            document.getElementById("bank-button").addEventListener("click", () => {
+                window.location.href = "bankoverschrijvingen.html";
+            });
+
+            document.getElementById("rekening-button").addEventListener("click", () => {
+                window.location.href = "rekeningen.html";
+            });
+
+                  document.getElementById("cryptovaluta-button").addEventListener("click", () => {
+                window.location.href = "cryptovaluta.html";
+            });
+    </script>
+</body>
+</html>
