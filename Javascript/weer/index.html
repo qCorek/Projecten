@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weer Applicatie</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+        input, button {
+            padding: 10px;
+            margin: 5px;
+        }
+        .weer-info {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <h1>Weer Applicatie</h1>
+    <input type="text" id="stad" placeholder="Voer een stad in">
+    <button onclick="haalWeerOp()">Bekijk Weer</button>
+    <div class="weer-info" id="weerInfo"></div>
+
+    <script>
+        const apiKey = 'd87eda0739e754d0812ce2f4917b18ca';
+
+        function haalWeerOp() {
+            const stad = document.getElementById('stad').value;
+            if (!stad) {
+                alert('Voer een geldige stad in.');
+                return;
+            }
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${stad}&appid=${apiKey}&units=metric&lang=nl`)
+                .then(response => {
+                    if (!response.ok) {
+                        throw new Error('Locatie niet gevonden.');
+                    }
+                    return response.json();
+                })
+                .then(data => {
+                    const weerBeschrijving = data.weather[0].description;
+                    const temperatuur = data.main.temp;
+                    const luchtvochtigheid = data.main.humidity;
+                    document.getElementById('weerInfo').innerHTML = `
+                        <h2>Weer in ${stad}</h2>
+                        <p>Temperatuur: ${temperatuur}°C</p>
+                        <p>Luchtvochtigheid: ${luchtvochtigheid}%</p>
+                        <p>Omschrijving: ${weerBeschrijving}</p>
+                    `;
+                })
+                .catch(error => {
+                    document.getElementById('weerInfo').innerHTML = `<p style="color: red;">${error.message}</p>`;
+                });
+        }
+    </script>
+</body>
+</html>
