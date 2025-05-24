@@ -1,0 +1,136 @@
+
+$primary-color: #0d1b2a;
+$secondary-color: #1b263b;
+$accent-color: #e0e1dd;
+$text-color: #ffffff;
+$card-bg: #415a77;
+$font-stack: 'Segoe UI', sans-serif;
+
+body {
+  margin: 0;
+  font-family: $font-stack;
+  background: $secondary-color;
+  color: $text-color;
+}
+
+header {
+  background: $primary-color;
+  padding: 2rem;
+  text-align: center;
+
+  h1 {
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1.2rem;
+    color: $accent-color;
+  }
+}
+
+nav {
+  background: $card-bg;
+
+  ul {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+
+    li {
+      a {
+        display: block;
+        padding: 1rem;
+        color: $text-color;
+        text-decoration: none;
+
+        &:hover {
+          background: lighten($card-bg, 10%);
+        }
+      }
+    }
+  }
+
+  .hamburger {
+    display: none;
+  }
+}
+
+main {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+  padding: 2rem;
+
+  .card {
+    background: $card-bg;
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+  }
+
+  .skills-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    list-style: none;
+    padding: 0;
+
+    li {
+      background: lighten($card-bg, 10%);
+      padding: 0.5rem 1rem;
+      border-radius: 1rem;
+    }
+  }
+
+  .project {
+    margin-bottom: 1rem;
+
+    h3 {
+      margin-bottom: 0.2rem;
+    }
+  }
+
+  form {
+    display: flex;
+    flex-direction: column;
+
+    input,
+    textarea {
+      margin-bottom: 1rem;
+      padding: 0.5rem;
+      border: none;
+      border-radius: 0.3rem;
+      font-size: 1rem;
+    }
+
+    input[type='submit'] {
+      background: $primary-color;
+      color: $text-color;
+      cursor: pointer;
+
+      &:hover {
+        background: darken($primary-color, 10%);
+      }
+    }
+  }
+}
+
+footer {
+  text-align: center;
+  background: $primary-color;
+  padding: 1rem;
+  color: $accent-color;
+}
+
+@media (min-width: 768px) {
+  main {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #contact {
+    grid-column: span 2;
+  }
+}
