@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="nl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ali Akbas - Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="font-main">
+    <header>
+        <nav>
+            <ul>
+                <li><a href="#about" class="active">Over mij</a></li>
+                <li><a href="#skills">Vaardigheden</a></li>
+                <li><a href="#education">Opleiding</a></li>
+                <li><a href="#experience">Ervaring</a></li>
+                <li><a href="#projects">Projecten</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section id="about">
+            <h1 class="font-title">Over mij</h1>
+            <article>
+                <p>Mijn naam is Ali Akbas. Ik ben 19 jaar oud en studeer aan het Techniek College Rotterdam. Ik ben een enthousiaste front-end ontwikkelaar in opleiding met interesse in moderne webtechnologieën.</p>
+            </article>
+        </section>
+
+        <section id="skills">
+            <h2 class="font-title">Kennis & Vaardigheden</h2>
+            <ul>
+                <li>HTML5 / CSS3 / SCSS</li>
+                <li>JavaScript (basis)</li>
+                <li>Flexbox & CSS Grid</li>
+                <li>Responsive design</li>
+                <li>Git / GitHub</li>
+            </ul>
+        </section>
+
+        <section id="education">
+            <h2 class="font-title">Opleiding</h2>
+            <article>
+                <h3>Techniek College Rotterdam</h3>
+                <p>Opleiding: Software Developer MBO Niveau 4</p>
+                <p>Periode: 2024 - heden</p>
+            </article>
+        </section>
+
+        <section id="experience">
+            <h2 class="font-title">Werkervaring</h2>
+            <article>
+                <p>Stage bij WebDev Company (2024 - 2025)</p>
+                <p>Werkzaamheden: Ondersteuning front-end development, styling met SCSS, eenvoudige JavaScript scripts, bugfixing en het testen van responsive design.</p>
+            </article>
+        </section>
+
+        <section id="projects">
+            <h2 class="font-title">Projecten</h2>
+            <section class="project-list">
+                <article class="project-item column-1 bg-primary">
+                    <h3>Portfolio Website</h3>
+                    <p>Dit website is voor front-end opdracht.</p>
+                </article>
+              
+            </section>
+        </section>
+        
+
+        <section id="contact">
+            <h2 class="font-title">Contact</h2>
+            <form class="contact-form">
+                <label for="name">Naam:</label>
+                <input type="text" id="name" name="name" required>
+
+                <label for="email">E-mail:</label>
+                <input type="email" id="email" name="email" required>
+
+                <label for="message">Bericht:</label>
+                <textarea id="message" name="message" rows="5" required></textarea>
+
+                <button class="button button--success" type="submit">Verzenden</button>
+            </form>
+            <p>GitHub: <a href="https://github.com" target="_blank">github.com/qcorek</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <p class="font-main">&copy; 2025 Ali Akbas</p>
+    </footer>
+</body>
+</html>

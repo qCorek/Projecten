@@ -1,0 +1,29 @@
+// @for
+@for $i from 1 through 3 {
+  .column-#{$i} {
+    width: (100% / 3) * $i;
+  }
+}
+
+// @each
+$themes: primary, secondary, success;
+
+@each $theme in $themes {
+  .bg-#{$theme} {
+    background-color: map-get((
+      primary: $primary-color,
+      secondary: $secondary-color,
+      success: #27ae60
+    ), $theme);
+  }
+}
+
+// @while
+$i: 1;
+
+@while $i < 4 {
+  .padding-#{$i} {
+    padding: $i * 5px;
+  }
+  $i: $i + 1;
+}

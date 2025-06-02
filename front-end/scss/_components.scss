@@ -1,0 +1,30 @@
+.button {
+  padding: $default-padding;
+  background-color: $primary-color;
+  color: white;
+  border: none;
+  cursor: pointer;
+
+  @media (max-width: 768px) {
+    padding: 10px;
+  }
+
+  &:hover {
+    background-color: darken($primary-color, 10%);
+  }
+}
+
+.button--success {
+  @extend .button;
+  background-color: $secondary-color;
+}
+
+.alert {
+  @if $primary-color == #3498db {
+    background-color: lighten($primary-color, 10%);
+  } @else if $primary-color == #ff0000 {
+    background-color: lighten($primary-color, 20%);
+  } @else {
+    background-color: grey;
+  }
+}

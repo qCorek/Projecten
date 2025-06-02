@@ -1,0 +1,48 @@
+// Namespace met font
+.font {
+  &-main {
+    font-family: $main-font;
+  }
+
+  &-title {
+    font-family: $main-font;
+    font-size: 2rem;
+  }
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: $secondary-color;
+
+  header {
+    background-color: $primary-color;
+    padding: $default-padding;
+
+    nav {
+      ul {
+        list-style: none;
+
+        li {
+          display: inline-block;
+
+          a {
+            color: white;
+
+            &:hover {
+              text-decoration: underline;
+            }
+
+            &.active {
+              font-weight: bold;
+            }
+
+            &::after {
+              content: ' →';
+            }
+          }
+        }
+      }
+    }
+  }
+}
